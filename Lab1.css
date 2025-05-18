@@ -1,0 +1,7 @@
+table,td,th{
+    border: 2px solid black;
+    border-collapse: collapse;
+}
+tbody tr:nth-child(odd){
+    background-color: rgb(160, 197, 198);
+}
