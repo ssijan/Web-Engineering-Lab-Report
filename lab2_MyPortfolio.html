@@ -2,103 +2,372 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <title>Md. Sakibur Rahman Portfolio</title>
+    <style>
+        /* Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-    <title>Document</title>
-    <link rel="stylesheet" href="style.css">
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #f5f7fa;
+            color: #333;
+            line-height: 1.6;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
 
+        header {
+            background: #f57224;
+            color: white;
+            padding: 20px 30px;
+            box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        header h1 {
+            font-weight: 700;
+            font-size: 1.8rem;
+            letter-spacing: 1.2px;
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            padding: 6px 12px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+            font-size: 0.95rem;
+        }
+
+        nav a:hover,
+        nav a.active {
+            background: #e05d00;
+        }
+
+        #search {
+            display: flex;
+            align-items: center;
+            margin-left: 10px;
+            background: white;
+            border-radius: 30px;
+            overflow: hidden;
+            box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        #search input {
+            border: none;
+            padding: 7px 15px;
+            font-size: 0.95rem;
+            outline: none;
+            width: 180px;
+            transition: width 0.3s ease;
+        }
+
+        #search input:focus {
+            width: 220px;
+        }
+
+        #search button {
+            background: #f57224;
+            border: none;
+            padding: 8px 12px;
+            cursor: pointer;
+            color: white;
+            font-size: 1rem;
+            transition: background-color 0.3s ease;
+        }
+
+        #search button:hover {
+            background: #e05d00;
+        }
+
+        /* Profile Picture */
+        #profile-pic-container {
+            text-align: center;
+            margin: 40px 0 30px 0;
+        }
+
+        #profile-pic-container img {
+            width: 300px;
+            height: 300px;
+            border-radius: 12px;
+            /* Slightly rounded corners */
+            object-fit: cover;
+            border: 5px solid #f57224;
+            box-shadow: 0 5px 15px rgba(245, 114, 36, 0.4);
+            transition: transform 0.3s ease;
+        }
+
+        #profile-pic-container img:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 20px rgba(245, 114, 36, 0.6);
+        }
+
+        /* Sections */
+        section {
+            max-width: 900px;
+            margin: 0 auto 50px auto;
+            background: white;
+            padding: 30px 40px;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: box-shadow 0.3s ease;
+        }
+
+        section:hover {
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .section-title {
+            font-size: 2rem;
+            color: #f57224;
+            margin-bottom: 18px;
+            border-bottom: 3px solid #f57224;
+            padding-bottom: 6px;
+            letter-spacing: 1.1px;
+            font-weight: 700;
+        }
+
+        p,
+        li {
+            font-size: 1.1rem;
+            color: #555;
+        }
+
+        ul {
+            margin-top: 15px;
+            list-style: inside disc;
+            color: #444;
+            font-weight: 500;
+        }
+
+        .project {
+            margin-bottom: 25px;
+        }
+
+        .project h3 {
+            font-size: 1.3rem;
+            margin-bottom: 6px;
+            color: #333;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .project p {
+            font-size: 1rem;
+            color: #666;
+            line-height: 1.4;
+            max-width: 850px;
+        }
+
+        /* Contact */
+        #contact .cont p {
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+        }
+
+        #contact .cont a {
+            color: #f57224;
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+
+        #contact .cont a:hover {
+            color: #e05d00;
+            text-decoration: underline;
+        }
+
+        .container {
+            max-width: 900px;
+            /* or 1000px, whatever width you prefer */
+            margin: 0 auto;
+            /* centers container */
+            padding: 0 20px;
+            /* horizontal padding */
+            box-sizing: border-box;
+        }
+
+        /* Footer */
+        footer {
+            background: #333;
+            color: white;
+            padding: 15px 0;
+            text-align: center;
+            font-size: 0.95rem;
+            letter-spacing: 0.7px;
+            margin-top: auto;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 15px;
+            }
+
+            nav {
+                gap: 12px;
+                width: 100%;
+                flex-wrap: wrap;
+            }
+
+            #search input {
+                width: 120px;
+            }
+
+            #search input:focus {
+                width: 160px;
+            }
+
+            section {
+                margin: 20px 15px 40px 15px;
+                padding: 25px 20px;
+            }
+
+            .section-title {
+                font-size: 1.6rem;
+            }
+
+            .project h3 {
+                font-size: 1.1rem;
+            }
+
+            #profile-pic-container img {
+                width: 130px;
+                height: 130px;
+            }
+        }
+    </style>
 </head>
 
 <body>
-
     <header>
         <h1>Md. Sakibur Rahman</h1>
         <nav>
-            <a href="index.html">Home</a>
+            <a href="Lab2_home.html">Home</a>
             <a href="#skills">Skills</a>
             <a href="#projects">Projects</a>
             <a href="#">Research</a>
             <a href="#contact">Contact</a>
-            <a href="about.html" class="active">My Portfolio</a>
+            <a href="lab2_MyPortfolio.html" class="active">My Portfolio</a>
             <div id="search">
-                <input type="text" placeholder="Search...">
+                <input type="text" placeholder="Search..." />
                 <button><i class="fas fa-search"></i></button>
             </div>
         </nav>
     </header>
 
-    <section id="about">
-        <h2 class="section-title">About Me</h2>
-        <p>
-            I'm Md. Sakibur Rahman, a CSE student at Daffodil International University with a CGPA of around 3.75.
-            I'm passionate about competitive programming and placed 7th in UTA. I'm currently rated as a Pupil on
-            Codeforces.
-        </p>
-    </section>
-
-    <section id="skills">
-        <h2 class="section-title">Skills</h2>
-        <ul>
-            <li>Programming Languages: C++, Python, Java, Bash</li>
-            <li>Web Development: HTML, CSS, JavaScript, PHP (basic)</li>
-            <li>App Development: Flutter</li>
-            <li>Machine Learning: Model training for research</li>
-        </ul>
-    </section>
-
-    <section id="projects">
-        <h2 class="section-title">Projects</h2>
-
-        <div class="project">
-            <h3>🍽️ Golden Bowl - Online Food Delivery App</h3>
-            <p>Built with Flutter. Features real-time food ordering, UI animations, and responsive design.</p>
+    <div class="container">
+        <!-- Profile picture -->
+        <div id="profile-pic-container">
+            <img src="sakibur.jpg" alt="Md. Sakibur Rahman" />
         </div>
 
-        <div class="project">
-            <h3>📚 Library Management System</h3>
-            <p>Built in Python using OOP concepts. Handles book lending, inventory, and member management.</p>
-        </div>
-
-        <div class="project">
-            <h3>🔐 Encrypted File Handler</h3>
-            <p>A high-security file encryption and decryption system built using Bash scripting.</p>
-        </div>
-
-        <div class="project">
-            <h3>💻 Online Code Compiler</h3>
+        <section id="about">
+            <h2 class="section-title">About Me</h2>
             <p>
-                A web-based code compiler built with HTML, Bootstrap, and JavaScript. Allows users to choose a language
-                (Python, C++, or Java) and run code directly in the browser with backend support.
+                I'm Md. Sakibur Rahman, a CSE student at Daffodil International University
+                with a CGPA of around 3.75. I'm passionate about competitive programming
+                and placed 7th in UTA. I'm currently rated as a Pupil on Codeforces.
             </p>
-        </div>
+        </section>
 
-        <div class="project">
-            <h3>🧠 MyLang - Python Interpreter</h3>
-            <p>
-                Created a custom interpreter using Python named <strong>MyLang</strong>. It can parse and execute custom
-                language syntax for educational and experimental purposes.
-            </p>
-        </div>
+        <section id="skills">
+            <h2 class="section-title">Skills</h2>
+            <ul>
+                <li>Programming Languages: C++, Python, Java, Bash</li>
+                <li>Web Development: HTML, CSS, JavaScript, PHP (basic)</li>
+                <li>App Development: Flutter</li>
+                <li>Machine Learning: Model training for research</li>
+            </ul>
+        </section>
 
-    </section>
+        <section id="projects">
+            <h2 class="section-title">Projects</h2>
 
+            <div class="project">
+                <h3>🍽️ Golden Bowl - Online Food Delivery App</h3>
+                <p>
+                    Built with Flutter. Features real-time food ordering, UI animations, and
+                    responsive design.
+                </p>
+            </div>
 
-    <section id="contact">
-        <h2 class="section-title">Contact</h2>
-        <div class="cont">
+            <div class="project">
+                <h3>📚 Library Management System</h3>
+                <p>
+                    Built in Python using OOP concepts. Handles book lending, inventory, and
+                    member management.
+                </p>
+            </div>
 
-            <p>Email: rahman15-5460@diu.edu.bd</p>
-            <p>GitHub: <a href="https://github.com/ssijan" target="_blank">Git Profile </a></p>
-            <p>Codeforces: <a href="https://codeforces.com/profile/sijan" target="_blank">CF Profile</a></p>
-        </div>
-    </section>
+            <div class="project">
+                <h3>🔐 Encrypted File Handler</h3>
+                <p>
+                    A high-security file encryption and decryption system built using Bash
+                    scripting.
+                </p>
+            </div>
 
-    <footer>
-        &copy; 2025 Md. Sakibur Rahman. All rights reserved.
-    </footer>
+            <div class="project">
+                <h3>💻 Online Code Compiler</h3>
+                <p>
+                    A web-based code compiler built with HTML, Bootstrap, and JavaScript.
+                    Allows users to choose a language (Python, C++, or Java) and run code
+                    directly in the browser with backend support.
+                </p>
+            </div>
 
+            <div class="project">
+                <h3>🧠 MyLang - Python Interpreter</h3>
+                <p>
+                    Created a custom interpreter using Python named
+                    <strong>MyLang</strong>. It can parse and execute custom language syntax
+                    for educational and experimental purposes.
+                </p>
+            </div>
+        </section>
+
+        <section id="contact">
+            <h2 class="section-title">Contact</h2>
+            <div class="cont">
+                <p>Email: rahman15-5460@diu.edu.bd</p>
+                <p>
+                    GitHub:
+                    <a href="https://github.com/ssijan" target="_blank">Git Profile</a>
+                </p>
+                <p>
+                    Codeforces:
+                    <a href="https://codeforces.com/profile/sijan" target="_blank">CF Profile</a>
+                </p>
+            </div>
+        </section>
+    </div>
+
+    <footer>&copy; 2025 Md. Sakibur Rahman. All rights reserved.</footer>
 </body>
 
 </html>
