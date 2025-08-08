@@ -7,7 +7,6 @@
   <title>Marriage Biodata Form</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet" />
   <style>
-    /* Base Styles */
     * {
       box-sizing: border-box;
       margin: 0;
@@ -131,7 +130,7 @@
       <p>Please fill out the details below to create your biodata.</p>
     </header>
 
-    <form action="#" method="post">
+    <form action="submitbio.php" method="post">
       <fieldset>
         <legend>Personal Details</legend>
         <div class="form-group">
@@ -175,12 +174,12 @@
       <fieldset>
         <legend>Family Background</legend>
         <div class="form-group">
-          <label for="father">Father's Name & Occupation</label>
-          <input type="text" id="father" name="father" required placeholder="Enter father's name and occupation" />
+          <label for="father">Father's Name </label>
+          <input type="text" id="father" name="father" required placeholder="Enter father's name" />
         </div>
         <div class="form-group">
-          <label for="mother">Mother's Name & Occupation</label>
-          <input type="text" id="mother" name="mother" required placeholder="Enter mother's name and occupation" />
+          <label for="mother">Mother's Name </label>
+          <input type="text" id="mother" name="mother" required placeholder="Enter mother's name " />
         </div>
         <div class="form-group">
           <label for="siblings">Siblings</label>
@@ -209,7 +208,7 @@
       </fieldset>
 
       <div class="form-group">
-        <button type="submit">Submit Biodata</button>
+        <button type="submit">Submit</button>
       </div>
     </form>
   </div>
